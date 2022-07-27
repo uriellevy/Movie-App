@@ -1,0 +1,71 @@
+.movie-item-wrapper {
+    background-image: linear-gradient(120deg, #DBA506, #f0c850 90%);
+    color: #000;
+    font-weight: bold;
+    margin: 20px 20px;
+    list-style: none;
+    height: 400px;
+    width:250px;
+    transition: all 0.2s ease;
+    
+
+    .movie-img {
+        height:70%;
+        width: 100%;
+    }
+
+    .bottom-wrapper {
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .btn-add {
+            font-weight: bold;
+            font-size: 12px;
+            padding: 0px 10px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #000;
+            color:#fff;
+            cursor: pointer;
+
+        }
+
+        .btn-delete {
+            font-weight: bold;
+            font-size: 12px;
+            padding: 0px 10px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: rgb(135, 21, 21);
+            border: none;
+            color:#fff;
+            cursor: pointer;
+
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .movie-item-wrapper {
+        height: 250px;
+        width:150px;
+        
+        .bottom-wrapper {
+            padding: 5px 10px;
+    
+            .btn-add {
+                font-size: 9px;
+                padding: 0px 8px;
+                height: 22px;
+            }
+    
+            .btn-delete {
+                font-size: 9px;
+                padding: 0px 8px;
+                height: 22px;
+            }
+        }
+    }
+  }

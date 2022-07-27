@@ -1,19 +1,23 @@
 import React, { useState, useEffect, createContext } from "react";
+import { Movie } from "../types/types";
 
-interface movieContext {
-    name: string
-}
 
-export const MovieContext = createContext<any | null>(null);
+
+
+
+
+
+export const MovieContext = createContext<any>(null);
 
 export const MovieProvider = (props: any) => {
-    const [top250Movies, setTop250Movies] = useState<any>([])
+    const [top250Movies, setTop250Movies] = useState<Movie[] | null>([])
 
     const get250TopMovies = async () => {
         const res = await fetch("https://imdb-api.com/en/API/Top250Movies/k_y5o4o48d");
-        const data = res.json();
-        console.log(data);
-      };
+        const data = await res.json();
+        const newData = data.items;
+        setTop250Movies(newData)
+    };
 
       useEffect(() => {
         get250TopMovies()
@@ -25,7 +29,7 @@ export const MovieProvider = (props: any) => {
       };
     
       return (
-        <MovieContext.Provider value="fggffg">
+        <MovieContext.Provider value={value}>
           {props.children}
         </MovieContext.Provider>
       );
