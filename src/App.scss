@@ -8,7 +8,7 @@
 }
 
 html {
-  background-color: rgba(29, 39, 53, 0.185);
+  background: url('./img//background.png') fixed ;
   color: #000;
 }
 
@@ -22,9 +22,9 @@ html {
     height: 200vh;
   }
 }
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color: #eee;
-//     background: #121212;
-//   }
-// }
+@media (prefers-color-scheme: dark) {
+  html {
+    background: url('./img//dark-background.jpg') fixed ;
+
+  }
+}

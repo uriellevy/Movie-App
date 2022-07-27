@@ -14,7 +14,7 @@
       border-radius: 10px;
   
       .search-icon {
-        color: #fff;
+        color: #777;
         margin: 0 5px;
       }
   
@@ -65,4 +65,16 @@
     
       }
     }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .homeview-container {
+        .movie-list-wrapper {
+        
+          h1 {
+            color: #fff;
+          }
+      
+        }
+      }
   }

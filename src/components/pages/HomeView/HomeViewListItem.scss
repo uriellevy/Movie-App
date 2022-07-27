@@ -5,49 +5,56 @@
     margin: 20px 20px;
     list-style: none;
     height: 400px;
-    width:250px;
+    width: 250px;
     transition: all 0.2s ease;
-    
+
 
     .movie-img {
-        height:70%;
+        height: 70%;
         width: 100%;
     }
 
     .bottom-wrapper {
         padding: 5px 10px;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         width: 100%;
 
         .homeview-btn-wrapper {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            .btn-add, .btn-trailer {
+            justify-content: space-around;
+
+            .btn-add,
+            .btn-trailer {
                 font-weight: bold;
                 font-size: 12px;
                 padding: 0px 10px;
-                margin-bottom: 5px;
+                width: 80px;
                 height: 30px;
                 border-radius: 5px;
                 background-color: #000;
+                border: 3px #000 solid;
                 border: none;
-                color:#fff;
+                color: #fff;
                 cursor: pointer;
-    
+                margin-top: 3px;
+
             }
+
             .btn-disable {
                 font-weight: bold;
                 font-size: 12px;
                 padding: 0px 10px;
-                margin-bottom: 5px;
+                margin-top: 3px;
+                width: 80px;
                 height: 30px;
                 border-radius: 5px;
                 background-color: #777;
-                border: none;
-                color:#fff;
-                cursor: pointer;
+                border: 3px #000 solid;
+                color: #fff;
+                transition: all 0.4s ease;
+
             }
 
         }
@@ -61,7 +68,7 @@
             border-radius: 5px;
             background-color: rgb(135, 21, 21);
             border: none;
-            color:#fff;
+            color: #fff;
             cursor: pointer;
 
         }
@@ -70,23 +77,31 @@
 
 @media (max-width: 375px) {
     .movie-item-wrapper {
-        height: 250px;
-        width:150px;
-        
+        height: 260px;
+        width: 150px;
+
         .bottom-wrapper {
             padding: 5px 10px;
-    
-            .btn-add {
-                font-size: 9px;
-                padding: 0px 8px;
-                height: 22px;
-            }
-    
-            .btn-delete {
-                font-size: 9px;
-                padding: 0px 8px;
-                height: 22px;
+
+            .homeview-btn-wrapper {
+
+                .btn-add,
+                .btn-trailer,
+                .btn-disable {
+                    font-size: 9px;
+                    padding: 0px 8px;
+                    height: 15px;
+                    width: 50px;
+                    margin-top: 2px;
+                    border: 2px #000 solid
+                }
+
+                .btn-delete {
+                    font-size: 9px;
+                    padding: 0px 8px;
+                    height: 22px;
+                }
             }
         }
     }
-  }
+}

@@ -18,13 +18,12 @@ const Favorites = () => {
                         placeholder="search by movie name..."
                     />
                 </div>
-                <h1>{`Favorites`}</h1>
                 <ul className='movie-list-wrapper'>
                     {favoriteMovies.length !== 0 ?
                         favoriteMovies.map((movie: Movie) => (
                            <FavoritesListItem key={movie.id} movie={movie}/>
                         )) :
-                        <h2>No favorites selected</h2>
+                        <h1>No favorites selected</h1>
                     }
                 </ul>
 
