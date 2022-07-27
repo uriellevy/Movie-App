@@ -9,7 +9,6 @@ import { Movie } from '../../types/types';
 
 const HomeView = () => {
   const {top250Movies, searchByName, searchByNameChangeHandler} = useContext(MovieContext)
- 
 
   return (
     <div className="homeview-container">

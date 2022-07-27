@@ -20,17 +20,38 @@
         justify-content: space-between;
         width: 100%;
 
-        .btn-add {
-            font-weight: bold;
-            font-size: 12px;
-            padding: 0px 10px;
-            height: 30px;
-            border-radius: 5px;
-            background-color: #000;
-            color:#fff;
-            cursor: pointer;
+        .homeview-btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            .btn-add, .btn-trailer {
+                font-weight: bold;
+                font-size: 12px;
+                padding: 0px 10px;
+                margin-bottom: 5px;
+                height: 30px;
+                border-radius: 5px;
+                background-color: #000;
+                border: none;
+                color:#fff;
+                cursor: pointer;
+    
+            }
+            .btn-disable {
+                font-weight: bold;
+                font-size: 12px;
+                padding: 0px 10px;
+                margin-bottom: 5px;
+                height: 30px;
+                border-radius: 5px;
+                background-color: #777;
+                border: none;
+                color:#fff;
+                cursor: pointer;
+            }
 
         }
+
 
         .btn-delete {
             font-weight: bold;

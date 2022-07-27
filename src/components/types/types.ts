@@ -8,7 +8,7 @@ export interface Movie {
     crew: string,
     imDbRating: string,
     imDbRatingCount: string,
-    addedToFavorite: boolean
+    isAddedToFavorite: boolean
   }
   
   export interface Store {
