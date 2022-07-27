@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import "./HomeView.scss";
 import { Rings } from "react-loader-spinner";
@@ -8,7 +8,8 @@ import "./HomeView.scss";
 import { Movie } from '../../types/types';
 
 const HomeView = () => {
-  const {top250Movies, setTop250Movies} = useContext(MovieContext)
+  const {top250Movies, searchByName, searchByNameChangeHandler} = useContext(MovieContext)
+  console.log(searchByName)
 
   return (
     <div className="homeview-container">
@@ -17,13 +18,14 @@ const HomeView = () => {
         <input
           type="text"
           placeholder="search by movie name..."
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchByNameChangeHandler(e.target.value)}
         />
       </div>
       <h1>{`Top 250 movies`}</h1>
 
       <ul className='movie-list-wrapper'>
         {top250Movies ?
-        top250Movies.map((movie: Movie) => (
+        top250Movies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
           <HomeViewListItem key={movie.id} movie={movie}/>
         )):
         <Rings color="#00BFFF" height={80} width={80} />

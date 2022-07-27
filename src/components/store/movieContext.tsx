@@ -11,6 +11,7 @@ export const MovieContext = createContext<any>(null);
 
 export const MovieProvider = (props: any) => {
     const [top250Movies, setTop250Movies] = useState<Movie[] | null>([])
+    const [searchByName, setSearchByName] = useState<string | undefined>('')
 
     const get250TopMovies = async () => {
         const res = await fetch("https://imdb-api.com/en/API/Top250Movies/k_y5o4o48d");
@@ -23,9 +24,16 @@ export const MovieProvider = (props: any) => {
         get250TopMovies()
       }, []);
 
+      const searchByNameChangeHandler = (input: string) => {
+        setSearchByName(input)
+      }
+
       const value = {
         top250Movies,
         setTop250Movies,
+        searchByName,
+        setSearchByName,
+        searchByNameChangeHandler,
       };
     
       return (
