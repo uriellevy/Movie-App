@@ -9,7 +9,7 @@ import { Movie } from '../../types/types';
 
 const HomeView = () => {
   const {top250Movies, searchByName, searchByNameChangeHandler} = useContext(MovieContext)
-  console.log(searchByName)
+ 
 
   return (
     <div className="homeview-container">
@@ -24,7 +24,7 @@ const HomeView = () => {
       <h1>{`Top 250 movies`}</h1>
 
       <ul className='movie-list-wrapper'>
-        {top250Movies ?
+        {top250Movies.length !== 0 ?
         top250Movies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
           <HomeViewListItem key={movie.id} movie={movie}/>
         )):

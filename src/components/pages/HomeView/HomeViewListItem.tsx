@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import "./HomeViewListItem.scss"
 
@@ -9,6 +10,32 @@ interface HomeViewListItemProps {
 
 const HomeMovieItem = (props: HomeViewListItemProps) => {
   const crew = props.movie.crew?.replace('(dir.)', '')
+  const {top250Movies, setTop250Movies ,setFavoriteMovies, favoriteMovies} = useContext(MovieContext)
+
+  const addMovieToFavoritesHandler = (id: string) => {
+    const addedObject = top250Movies.find((movie:Movie) => movie.id === id);
+    if (!addedObject.isAddedToFavorite) {
+        setFavoriteMovies((prev: Movie[]) => [...prev, {...addedObject, isAddedToFavorite: true}]);
+        setTop250Movies((prev: Movie[]) => prev.map((movie:Movie) => movie.id === id ? {...movie, isAddedToFavorite: true} : {...movie}))
+    } 
+  }
+//   const addMovieToFavoritesHandler = (id: string) => {
+//     const addedObject = top250Movies.find((movie:Movie) => movie.id === id);
+//     if (!addedObject.isAddedToFavorite) {
+//         setFavoriteMovies((prev: Movie[]) => [...prev, {...addedObject, isAddedToFavorite: true}]);
+//         setTop250Movies((prev: Movie[]) => (
+//              prev.map((obj:Movie) => {
+//                 if (obj.id === id) {
+//                     return {...obj, isAddedToFavorite: true}
+//                 } else {
+//                     return obj
+//                 }
+//             })
+//         ))
+//     } 
+//   }
+  console.log(top250Movies)
+  console.log(favoriteMovies)
 
 
   return (
@@ -22,7 +49,7 @@ const HomeMovieItem = (props: HomeViewListItemProps) => {
           <div>{`Rank:${props.movie.rank}`}</div>
           <div>{`Crew:${crew}`}</div>
         </div>
-        <button className='btn-add'>Add</button>
+        <button className='btn-add' onClick={() => addMovieToFavoritesHandler(props.movie.id)}>Add</button>
       </div>
     </li>
   )
