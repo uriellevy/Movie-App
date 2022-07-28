@@ -20,7 +20,7 @@ const HomeView = () => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchByNameChangeHandler(e.target.value)}
         />
       </div>
-      <h1>{`Top 250 movies`}</h1>
+      <h1>Top 250 movies</h1>
 
       <ul className='movie-list-wrapper'>
         {top250Movies.length !== 0 ?

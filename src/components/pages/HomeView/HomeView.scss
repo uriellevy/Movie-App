@@ -51,6 +51,7 @@
   @media (max-width: 375px) {
 
     .homeview-container {
+      
       .homeview-search {
         input {
           &::placeholder {
@@ -69,6 +70,9 @@
 
   @media (prefers-color-scheme: dark) {
     .homeview-container {
+        h1 {
+            color:#fff
+        }
         .movie-list-wrapper {
         
           h1 {
