@@ -24,6 +24,12 @@ const Nav = () => {
         >
           Favorites
         </Link>
+        <Link
+          to="/mostPopular"
+          className="nav-link"
+        >
+          Most Popular
+        </Link>
       </ul>
     </nav>
   )

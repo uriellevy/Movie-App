@@ -24,7 +24,8 @@
         color: rgb(22, 39, 69);
         transition: all 0.3s ease;
   
-        &:first-child {
+        &:first-child,
+        &:nth-child(2) {
           margin-right: 20px;
         }
   
