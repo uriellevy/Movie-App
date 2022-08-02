@@ -9,7 +9,6 @@ export const MovieProvider = (props: any) => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[] | null>([])
   const [searchByName, setSearchByName] = useState<string | undefined>('')
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>([])
-  const [trailerUrl, setTrailerUrl] = useState<string | undefined>('')
   const API_KEY = "k_y5o4o48d"
 
   const get250TopMovies = async () => {
@@ -56,7 +55,6 @@ export const MovieProvider = (props: any) => {
     mostPopularMovies,
     setMostPopularMovies,
     getAllTrailers,
-    trailerUrl,
   };
 
   return (
