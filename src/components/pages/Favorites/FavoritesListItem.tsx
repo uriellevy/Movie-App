@@ -24,7 +24,10 @@ const FavoritesListItem = (props: FavoritesListItemProps) => {
             <div>{`Rank:${props.movie.rank}`}</div>
             <div>{`Crew:${props.movie.crew}`}</div>
         </div>
+        <div className='homeview-btn-wrapper'>
         <button className='btn-delete' onClick={() => deleteMovieFromFavoritesHandler(props.movie.id)}>Delete</button>
+        <button className='btn-trailer' >Trailer</button>
+        </div>
     </div>
 </li>
   )

@@ -1,25 +1,17 @@
 import React, { useContext } from 'react'
-import { FaSearch } from 'react-icons/fa'
 import { Rings } from 'react-loader-spinner'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import MostPopularListItem from './MostPopularListItem'
 import InfiniteScroll from 'react-infinite-scroll-component';
+import SearchBar from '../../utils/SearchBar'
 
 
 const MostPopularMovies = () => {
-    const { mostPopularMovies, searchByName, searchByNameChangeHandler } = useContext(MovieContext)
-
+    const { mostPopularMovies, searchByName} = useContext(MovieContext)
     return (
         <div className="homeview-container">
-            <div className="homeview-search">
-                <FaSearch className="search-icon" />
-                <input
-                    type="text"
-                    placeholder="search by movie name..."
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchByNameChangeHandler(e.target.value)}
-                />
-            </div>
+            <SearchBar/>
             <h1>Top 250 movies</h1>
             <InfiniteScroll
                 dataLength={mostPopularMovies.length}

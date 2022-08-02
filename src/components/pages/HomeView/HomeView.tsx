@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import { FaSearch } from "react-icons/fa";
+import React, { useContext } from 'react'
 import "./HomeView.scss";
 import { Rings } from "react-loader-spinner";
 import HomeViewListItem from './HomeViewListItem';
@@ -7,21 +6,15 @@ import { MovieContext } from '../../store/movieContext';
 import "./HomeView.scss";
 import { Movie } from '../../types/types';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import SearchBar from '../../utils/SearchBar';
 
 
 const HomeView = () => {
-  const { top250Movies, searchByName, searchByNameChangeHandler } = useContext(MovieContext)
+  const { top250Movies, searchByName } = useContext(MovieContext)
 
   return (
     <div className="homeview-container">
-      <div className="homeview-search">
-        <FaSearch className="search-icon" />
-        <input
-          type="text"
-          placeholder="search by movie name..."
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchByNameChangeHandler(e.target.value)}
-        />
-      </div>
+      <SearchBar/>
       <h1>Top 250 movies</h1>
       <InfiniteScroll
         dataLength={top250Movies.length}

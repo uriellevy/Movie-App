@@ -26,7 +26,9 @@
             justify-content: space-around;
 
             .btn-add,
-            .btn-trailer {
+            .btn-trailer,
+            .btn-delete,
+            .btn-disable {
                 font-weight: bold;
                 font-size: 12px;
                 padding: 0px 10px;
@@ -41,21 +43,38 @@
                 margin-top: 3px;
 
             }
-
             .btn-disable {
-                font-weight: bold;
-                font-size: 12px;
-                padding: 0px 10px;
-                margin-top: 3px;
-                width: 80px;
-                height: 30px;
-                border-radius: 5px;
                 background-color: #777;
                 border: 3px #000 solid;
-                color: #fff;
                 transition: all 0.4s ease;
+                cursor:not-allowed;
+            }
+            .btn-add,
+            .btn-trailer {
+                background-color: #000;
+                border: 3px #000 solid;
+            }
+            .btn-delete {
+                background-color: rgb(135, 21, 21);
+                border: 3px rgb(135, 21, 21) solid;
+
 
             }
+
+            // .btn-disable {
+            //     font-weight: bold;
+            //     font-size: 12px;
+            //     padding: 0px 10px;
+            //     margin-top: 3px;
+            //     width: 80px;
+            //     height: 30px;
+            //     border-radius: 5px;
+            //     background-color: #777;
+            //     border: 3px #000 solid;
+            //     transition: all 0.4s ease;
+            //     color: #fff;
+
+            // }
 
         }
 

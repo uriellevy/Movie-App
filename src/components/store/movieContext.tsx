@@ -2,11 +2,6 @@ import React, { useState, useEffect, createContext } from "react";
 import { Movie } from "../types/types";
 
 
-
-
-
-
-
 export const MovieContext = createContext<any>(null);
 
 export const MovieProvider = (props: any) => {
@@ -37,7 +32,7 @@ export const MovieProvider = (props: any) => {
   useEffect(() => {
     getMostPopularMovies()
   },[])
-console.log(mostPopularMovies)
+  
   const searchByNameChangeHandler = (input: string) => {
     setSearchByName(input)
   }

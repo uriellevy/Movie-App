@@ -1,26 +1,20 @@
 import React, {useContext} from 'react'
-import { FaSearch } from 'react-icons/fa';
 import { MovieContext } from '../../store/movieContext';
 import { Movie } from '../../types/types';
+import SearchBar from '../../utils/SearchBar';
 import FavoritesListItem from './FavoritesListItem';
 
 
 const Favorites = () => {
-  const {favoriteMovies} = useContext( MovieContext)
+  const {favoriteMovies, searchByName} = useContext( MovieContext)
   
     return (
         <>
             <div className="homeview-container">
-                <div className="homeview-search">
-                    <FaSearch className="search-icon" />
-                    <input
-                        type="text"
-                        placeholder="search by movie name..."
-                    />
-                </div>
+                <SearchBar/>
                 <ul className='movie-list-wrapper'>
                     {favoriteMovies.length !== 0 ?
-                        favoriteMovies.map((movie: Movie) => (
+                        favoriteMovies.filter((movie:Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
                            <FavoritesListItem key={movie.id} movie={movie}/>
                         )) :
                         <h1>No favorites selected</h1>
@@ -34,6 +28,3 @@ const Favorites = () => {
 
 export default Favorites
 
-function dispatch(arg0: any): void {
-    throw new Error('Function not implemented.');
-}
