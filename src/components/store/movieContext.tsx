@@ -9,6 +9,7 @@ export const MovieProvider = (props: any) => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[] | null>([])
   const [searchByName, setSearchByName] = useState<string | undefined>('')
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>([])
+  const [trailerUrl, setTrailerUrl] = useState<string | undefined>('')
   const API_KEY = "k_y5o4o48d"
 
   const get250TopMovies = async () => {
@@ -23,6 +24,13 @@ export const MovieProvider = (props: any) => {
     const data = await res.json();
     const newData = data.items.map((movie:Movie) => ({...movie, isAddedToFavorite: false}));
     setMostPopularMovies(newData);
+  }
+
+  const getAllTrailers = async (id: string) => {
+    const res = await fetch(`https://imdb-api.com/en/API/Trailer/k_y5o4o48d/${id}`)
+    const data = await res.json();
+    const url = data.link
+    window.open(url);
   }
 
   useEffect(() => {
@@ -47,6 +55,8 @@ export const MovieProvider = (props: any) => {
     setFavoriteMovies,
     mostPopularMovies,
     setMostPopularMovies,
+    getAllTrailers,
+    trailerUrl,
   };
 
   return (

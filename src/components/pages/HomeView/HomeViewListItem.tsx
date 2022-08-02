@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import "./HomeViewListItem.scss"
@@ -10,7 +10,7 @@ interface HomeViewListItemProps {
 
 const HomeMovieItem = (props: HomeViewListItemProps) => {
     const crew = props.movie.crew?.replace('(dir.)', '')
-    const { top250Movies, setTop250Movies, setFavoriteMovies} = useContext(MovieContext)
+    const { top250Movies, setTop250Movies, setFavoriteMovies, getAllTrailers, trailerUrl } = useContext(MovieContext)
 
     const addMovieToFavoritesHandler = (id: string) => {
         const chosenMovieToFavorites = top250Movies.find((movie: Movie) => movie.id === id);
@@ -19,7 +19,7 @@ const HomeMovieItem = (props: HomeViewListItemProps) => {
             setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: true } : { ...movie }))
         }
     }
-   
+
 
     return (
         <li className='movie-item-wrapper'>
@@ -33,8 +33,8 @@ const HomeMovieItem = (props: HomeViewListItemProps) => {
                     <div>{`Crew:${crew}`}</div>
                 </div>
                 <div className='homeview-btn-wrapper'>
-                <button className= {props.movie.isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(props.movie.id)}>Add</button>
-                <button className='btn-trailer' >Trailer</button>
+                    <button className={props.movie.isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(props.movie.id)}>Add</button>
+                    <button className='btn-trailer' onClick={() => getAllTrailers(props.movie.id)} >Trailer</button>
                 </div>
             </div>
         </li>
