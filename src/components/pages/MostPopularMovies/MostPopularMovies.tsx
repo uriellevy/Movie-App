@@ -17,7 +17,7 @@ const MostPopularMovies = () => {
                 dataLength={mostPopularMovies.length}
                 next={mostPopularMovies}
                 hasMore={true}
-                loader={<Rings color='#00BFFF' height={80} width={80} />}
+                loader={false}
             >
                 <ul className='movie-list-wrapper'>
                     {mostPopularMovies.length !== 0 ?

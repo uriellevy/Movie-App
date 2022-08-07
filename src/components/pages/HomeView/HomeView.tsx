@@ -20,7 +20,7 @@ const HomeView = () => {
         dataLength={top250Movies.length}
         next={top250Movies}
         hasMore={true}
-        loader={<Rings color='#00BFFF' height={80} width={80} />}
+        loader={false}
       >
 
         <ul className='movie-list-wrapper'>
