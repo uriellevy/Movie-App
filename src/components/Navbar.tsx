@@ -30,6 +30,12 @@ const Nav = () => {
         >
           Most Popular
         </Link>
+        <Link
+          to="/privateWatchingList"
+          className="nav-link"
+        >
+          Private
+        </Link>
       </ul>
     </nav>
   )

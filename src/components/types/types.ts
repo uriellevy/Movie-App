@@ -10,6 +10,11 @@ export interface Movie {
     imDbRatingCount: string,
     isAddedToFavorite: boolean
   }
+
+  export interface PrivateMovie {
+    title: string
+    id: number
+  }
   
   export interface Store {
     movies: Movie[];

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import { Movie } from "../types/types";
+import { Movie, PrivateMovie } from "../types/types";
 
 
 export const MovieContext = createContext<any>(null);
@@ -12,7 +12,14 @@ export const MovieProvider = (props: any) => {
   })
   const [searchByName, setSearchByName] = useState<string | undefined>('')
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>([])
+  const [privateMovies, setPrivateMovies] = useState<PrivateMovie[] | null>([
+    {title: "aaa", id: 1},
+    {title: "bbb", id: 2},
+    {title: "ccc", id: 3},
+  ]);
+  // console.log(privateMovies)
   const API_KEY = "k_y5o4o48d"
+
 
   const get250TopMovies = async () => {
     const res = await fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY}`);
@@ -44,6 +51,7 @@ export const MovieProvider = (props: any) => {
     localStorage.setItem("favoritesCollection", JSON.stringify(favoriteMovies))
   }, [favoriteMovies])
 
+
   
   const searchByNameChangeHandler = (input: string) => {
     setSearchByName(input)
@@ -60,6 +68,8 @@ export const MovieProvider = (props: any) => {
     mostPopularMovies,
     setMostPopularMovies,
     getAllTrailers,
+    privateMovies,
+    setPrivateMovies,
   };
 
   return (

@@ -8,11 +8,12 @@ interface FavoritesListItemProps {
 }
 
 const FavoritesListItem = (props: FavoritesListItemProps) => {
-    const { setFavoriteMovies, setTop250Movies, top250Movies, favoriteMovies } = useContext(MovieContext)
+    const { setFavoriteMovies, setTop250Movies } = useContext(MovieContext)
     const deleteMovieFromFavoritesHandler = (id: string) => {
         setFavoriteMovies((prev: Movie[]) => prev.filter((movie: Movie) => movie.id !== id))
         setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: false } : { ...movie }))
     }
+    const crew = props.movie.crew.replace("(dir.)", "");
     return (
         <li className='movie-item-wrapper' key={props.movie.id}>
             <img className='movie-img' src={props.movie.image} />
@@ -22,7 +23,7 @@ const FavoritesListItem = (props: FavoritesListItemProps) => {
                     <div>{`Year:${props.movie.year}`}</div>
                     <div>{`IMDB Rating:${props.movie.imDbRating}`}</div>
                     <div>{`Rank:${props.movie.rank}`}</div>
-                    <div>{`Crew:${props.movie.crew}`}</div>
+                    <div>{`Crew:${crew}`}</div>
                 </div>
             </div>
             <div className='homeview-btn-wrapper'>

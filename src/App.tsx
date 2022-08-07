@@ -6,6 +6,7 @@ import Favorites from './components/pages/Favorites/Favorites';
 import Navbar from './components/Navbar';
 import {MovieProvider} from "./components/store/movieContext"
 import MostPopularMovies from './components/pages/MostPopularMovies/MostPopularMovies';
+import PrivateWatchingList from './components/pages/privateWatchingList/PrivateWatchingList';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<HomeView />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/mostPopular" element={<MostPopularMovies/>} />
+            <Route path="/privateWatchingList" element={<PrivateWatchingList/>} />
           </Routes>
         </BrowserRouter>
       </MovieProvider>
