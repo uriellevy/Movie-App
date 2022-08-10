@@ -5,7 +5,27 @@
     flex-direction: column;
     margin: 100px 0;
     align-items: center;
-    .private-item {
+    .private-add-input {
+        margin: 22px 0;
+        &:nth-child(1) {
+            height: 50px;
+        }
+    }
+    .private-list {
+        width: 50%;
+        .private-item-wrapper {
+            list-style: none;
+            padding: 5px 30px;
+            display: flex;
+            justify-content:space-between;
+            border-bottom: 3px dotted #888;
+            .private-btn-delete {
+                background-color: rgb(145, 38, 38);
+                color: #fff;
+                padding: 3px 7px;
+                cursor: pointer;
+            }
+        }
     }
 }
 

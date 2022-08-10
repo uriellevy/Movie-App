@@ -12,12 +12,10 @@ export const MovieProvider = (props: any) => {
   })
   const [searchByName, setSearchByName] = useState<string | undefined>('')
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>([])
-  const [privateMovies, setPrivateMovies] = useState<PrivateMovie[] | null>([
-    {title: "aaa", id: 1},
-    {title: "bbb", id: 2},
-    {title: "ccc", id: 3},
-  ]);
-  // console.log(privateMovies)
+  const [privateMovies, setPrivateMovies] = useState<PrivateMovie[]>(() => {
+    const localData = localStorage.getItem("privateCollection");
+    return localData ? JSON.parse(localData) : [];
+  });
   const API_KEY = "k_y5o4o48d"
 
 
@@ -51,11 +49,17 @@ export const MovieProvider = (props: any) => {
     localStorage.setItem("favoritesCollection", JSON.stringify(favoriteMovies))
   }, [favoriteMovies])
 
+  useEffect(() => {
+    localStorage.setItem("privateCollection", JSON.stringify(privateMovies))
+  }, [privateMovies])
+
 
   
   const searchByNameChangeHandler = (input: string) => {
     setSearchByName(input)
   }
+
+
 
   const value = {
     top250Movies,
