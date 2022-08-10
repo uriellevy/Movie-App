@@ -17,7 +17,6 @@ const PrivateWatchingList = () => {
         if(title !== "") {
             setPrivateMovies((prev: PrivateMovie[]) => [...prev, {title: title, id: Math.round(Math.random() * 1000)}]);
             setTitle("")
-            console.log(privateMovies)
         } 
       }
 
@@ -31,7 +30,7 @@ const PrivateWatchingList = () => {
             <h1 className='private-wrapper-title'>Add Aditional Movies You Would Like To Watch</h1>
             <div className='private-add-input'>
                 <input type="text" onChange={handleInputChange} value={title} />
-                <input type="submit" onClick={addMovieToPrivateList}  value="Add" />
+                <input className='private-add-btn' type="submit" onClick={addMovieToPrivateList}  value="Add" />
             </div>
             <ul className='private-list'>
             {privateMovies.map((movie: PrivateMovie) => (

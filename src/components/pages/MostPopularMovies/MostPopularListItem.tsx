@@ -9,7 +9,7 @@ interface MostPopularListItemProps {
 
 const MostPopularListItem = (props: MostPopularListItemProps) => {
     const crew = props.movie.crew?.replace('(dir.)', '')
-    const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies } = useContext(MovieContext)
+    const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies, getAllTrailers } = useContext(MovieContext)
 
     const addMovieToFavoritesHandler = (id: string) => {
         const chosenMovieToFavorites = mostPopularMovies.find((movie: Movie) => movie.id === id);
@@ -32,7 +32,7 @@ const MostPopularListItem = (props: MostPopularListItemProps) => {
             </div>
             <div className='homeview-btn-wrapper'>
                 <button className={props.movie.isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(props.movie.id)}>Add</button>
-                <button className='btn-trailer' >Trailer</button>
+                <button className='btn-trailer' onClick={() => getAllTrailers(props.movie.id)}>Trailer</button>
             </div>
         </li>
     )
