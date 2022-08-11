@@ -12,10 +12,9 @@ const PrivateWatchingList = () => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value)
     }
-    console.log(title)
     const addMovieToPrivateList = () => {
         if(title !== "") {
-            setPrivateMovies((prev: PrivateMovie[]) => [...prev, {title: title, id: Math.round(Math.random() * 1000)}]);
+            setPrivateMovies((prev: PrivateMovie[]) => [...prev, {title: title.split(" "), id: Math.round(Math.random() * 1000)}]);
             setTitle("")
         } 
       }
@@ -27,9 +26,9 @@ const PrivateWatchingList = () => {
 
     return (
         <div className='private-wrapper'>
-            <h1 className='private-wrapper-title'>Add Aditional Movies You Would Like To Watch</h1>
+            <h2 className='private-wrapper-title'>Add Aditional Movies You Would Like To Watch</h2>
             <div className='private-add-input'>
-                <input type="text" onChange={handleInputChange} value={title} />
+                <input className='private-add-text' type="text" onChange={handleInputChange} value={title} placeholder="type movie..." />
                 <input className='private-add-btn' type="submit" onClick={addMovieToPrivateList}  value="Add" />
             </div>
             <ul className='private-list'>
