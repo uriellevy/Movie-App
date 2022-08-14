@@ -3,7 +3,6 @@ import { Rings } from 'react-loader-spinner'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import MostPopularListItem from './MostPopularListItem'
-import InfiniteScroll from 'react-infinite-scroll-component';
 import SearchBar from '../../utils/SearchBar'
 
 
@@ -13,12 +12,7 @@ const MostPopularMovies = () => {
         <div className="homeview-container">
             <SearchBar/>
             <h1>Top 250 movies</h1>
-            <InfiniteScroll
-                dataLength={mostPopularMovies.length}
-                next={mostPopularMovies}
-                hasMore={true}
-                loader={false}
-            >
+          
                 <ul className='movie-list-wrapper'>
                     {mostPopularMovies.length !== 0 ?
                         mostPopularMovies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
@@ -28,7 +22,6 @@ const MostPopularMovies = () => {
                     }
 
                 </ul>
-            </InfiniteScroll>
         </div>
     )
 }

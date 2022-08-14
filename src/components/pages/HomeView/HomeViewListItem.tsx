@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext} from 'react'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import "./HomeViewListItem.scss"
@@ -10,7 +10,7 @@ interface HomeViewListItemProps {
 
 const HomeMovieItem = (props: HomeViewListItemProps) => {
     const crew = props.movie.crew?.replace('(dir.)', '')
-    const { top250Movies, setTop250Movies, setFavoriteMovies, getAllTrailers } = useContext(MovieContext)
+    const { top250Movies, setTop250Movies, setFavoriteMovies, favoriteMovies, getAllTrailers } = useContext(MovieContext)
 
     const addMovieToFavoritesHandler = (id: string) => {
         const chosenMovieToFavorites = top250Movies.find((movie: Movie) => movie.id === id);
@@ -19,7 +19,6 @@ const HomeMovieItem = (props: HomeViewListItemProps) => {
             setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: true } : { ...movie }))
         }
     }
-
 
     return (
         <li className='movie-item-wrapper'>

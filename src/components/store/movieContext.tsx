@@ -62,6 +62,7 @@ export const MovieProvider = (props: any) => {
   const capitilizeMovieName = (movieTitle: string) => {
     return movieTitle.split(" ").map((title) => title.charAt(0).toLocaleUpperCase() + title.slice(1)).join(" ");
   }
+  
 
 
 
