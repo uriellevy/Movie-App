@@ -59,6 +59,10 @@ export const MovieProvider = (props: any) => {
     setSearchByName(input)
   }
 
+  const capitilizeMovieName = (movieTitle: string) => {
+    return movieTitle.split(" ").map((title) => title.charAt(0).toLocaleUpperCase() + title.slice(1)).join(" ");
+  }
+
 
 
   const value = {
@@ -74,6 +78,7 @@ export const MovieProvider = (props: any) => {
     getAllTrailers,
     privateMovies,
     setPrivateMovies,
+    capitilizeMovieName,
   };
 
   return (

@@ -38,3 +38,26 @@
       }
     }
   }
+
+  @media (max-width: 500px) {
+    .nav-container {
+    padding: 15px 10px;
+      .nav-logo {
+        h1 {
+          font-size: 18px;
+        }
+          
+        .logo-icon {
+          font-size: 20px;
+          margin-right: 7px;
+        }
+      }
+    
+      .nav-list {
+        .nav-link {
+          font-size: 12px;
+        }
+      }
+    }
+
+  }
