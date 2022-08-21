@@ -16,6 +16,7 @@ export const MovieProvider = (props: any) => {
     const localData = localStorage.getItem("privateCollection");
     return localData ? JSON.parse(localData) : [];
   });
+  const [backgroundOpacity, setBackgroundOpacity] = useState<number>(10);
   const API_KEY = "k_y5o4o48d"
 
 
@@ -62,6 +63,11 @@ export const MovieProvider = (props: any) => {
   const capitilizeMovieName = (movieTitle: string) => {
     return movieTitle.split(" ").map((title) => title.charAt(0).toLocaleUpperCase() + title.slice(1)).join(" ");
   }
+
+  const backgroundOpacityChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    setBackgroundOpacity((prev) => prev = value)
+  }
   
 
 
@@ -80,6 +86,9 @@ export const MovieProvider = (props: any) => {
     privateMovies,
     setPrivateMovies,
     capitilizeMovieName,
+    backgroundOpacity,
+    setBackgroundOpacity,
+    backgroundOpacityChangeHandler,
   };
 
   return (

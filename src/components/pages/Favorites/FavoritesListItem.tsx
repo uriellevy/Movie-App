@@ -8,14 +8,14 @@ interface FavoritesListItemProps {
 }
 
 const FavoritesListItem = (props: FavoritesListItemProps) => {
-    const { setFavoriteMovies, setTop250Movies, getAllTrailers } = useContext(MovieContext)
+    const { setFavoriteMovies, setTop250Movies, getAllTrailers, backgroundOpacity } = useContext(MovieContext)
     const deleteMovieFromFavoritesHandler = (id: string) => {
         setFavoriteMovies((prev: Movie[]) => prev.filter((movie: Movie) => movie.id !== id))
         setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: false } : { ...movie }))
     }
     const crew = props.movie.crew.replace("(dir.)", "");
     return (
-        <li className='movie-item-wrapper' key={props.movie.id}>
+        <li className='movie-item-wrapper' key={props.movie.id} style={{opacity: backgroundOpacity * 0.1}}>
             <img className='movie-img' src={props.movie.image} />
             <div className='bottom-wrapper'>
                 <div className='details'>

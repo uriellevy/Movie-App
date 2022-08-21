@@ -9,7 +9,7 @@ interface MostPopularListItemProps {
 
 const MostPopularListItem = (props: MostPopularListItemProps) => {
     const crew = props.movie.crew?.replace('(dir.)', '')
-    const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies, getAllTrailers } = useContext(MovieContext)
+    const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies, getAllTrailers, backgroundOpacity } = useContext(MovieContext)
 
     const addMovieToFavoritesHandler = (id: string) => {
         const chosenMovieToFavorites = mostPopularMovies.find((movie: Movie) => movie.id === id);
@@ -19,7 +19,7 @@ const MostPopularListItem = (props: MostPopularListItemProps) => {
         }
     }
     return (
-        <li className='movie-item-wrapper'>
+        <li className='movie-item-wrapper' style={{opacity: backgroundOpacity * 0.1}}>
             <img className='movie-img' src={props.movie.image} />
             <div className='bottom-wrapper'>
                 <div className='details'>

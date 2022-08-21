@@ -28,7 +28,7 @@ const PrivateWatchingList = () => {
 
     return (
         <div className='private-wrapper'>
-            <h2 className='private-wrapper-title'>Add Aditional Movies You Would Like To Watch</h2>
+            <h1 className='private-wrapper-title'>Add Aditional Movies You Would Like To Watch</h1>
             <div className='private-add-input'>
                 <input className='private-add-text' type="text" onChange={handleInputChange} value={title} placeholder="type movie..." />
                 <input className='private-add-btn' type="submit" onClick={addMovieToPrivateList} value="Add" />

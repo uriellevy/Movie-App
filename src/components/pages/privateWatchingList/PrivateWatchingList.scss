@@ -5,8 +5,11 @@
     flex-direction: column;
     margin: 100px 0;
     align-items: center;
-    h2 {
-        margin-bottom: 40px;
+    h1 {
+        margin: 0 10px 40px;
+        font-size: 22px;
+        text-align: center;
+        line-height: 1.5;
     }
     .private-add-input {
         margin-bottom: 30px;
@@ -38,7 +41,7 @@
                 background-color: rgb(145, 38, 38);
                 color: #fff;
                 padding: 3px 7px;
-                height: 40px;
+                height: 30px;
                 cursor: pointer;
             }
         }
