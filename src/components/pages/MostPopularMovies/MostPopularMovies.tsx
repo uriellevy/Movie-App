@@ -8,6 +8,7 @@ import SearchBar from '../../utils/SearchBar'
 
 const MostPopularMovies = () => {
     const { mostPopularMovies, searchByName} = useContext(MovieContext)
+    
     return (
         <div className="homeview-container">
             <SearchBar/>
@@ -20,7 +21,6 @@ const MostPopularMovies = () => {
                         )) :
                         <Rings color="#00BFFF" height={80} width={80} />
                     }
-
                 </ul>
         </div>
     )

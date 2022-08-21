@@ -1,14 +1,18 @@
-import React from 'react';
 import './App.scss';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeView from './components/pages/HomeView/HomeView';
 import Favorites from './components/pages/Favorites/Favorites';
 import Navbar from './components/Navbar';
-import {MovieProvider} from "./components/store/movieContext"
+import { MovieProvider } from "./components/store/movieContext"
 import MostPopularMovies from './components/pages/MostPopularMovies/MostPopularMovies';
 import PrivateWatchingList from './components/pages/privateWatchingList/PrivateWatchingList';
 
 function App() {
+  let a: any = [];
+ const c = typeof(42.1)
+  console.log(a);
+  console.log(c)
+
   return (
     <div className="app">
       <MovieProvider >
@@ -17,8 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeView />} />
             <Route path="/favorites" element={<Favorites />} />
-            <Route path="/mostPopular" element={<MostPopularMovies/>} />
-            <Route path="/privateWatchingList" element={<PrivateWatchingList/>} />
+            <Route path="/mostPopular" element={<MostPopularMovies />} />
+            <Route path="/privateWatchingList" element={<PrivateWatchingList />} />
           </Routes>
         </BrowserRouter>
       </MovieProvider>

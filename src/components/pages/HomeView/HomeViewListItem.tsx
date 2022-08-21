@@ -6,6 +6,7 @@ import "./HomeViewListItem.scss"
 interface HomeViewListItemProps {
     movie: Movie
     key: string | undefined
+    fontSize: number
 }
 
 const HomeMovieItem = (props: HomeViewListItemProps) => {
@@ -23,7 +24,7 @@ const HomeMovieItem = (props: HomeViewListItemProps) => {
     return (
         <li className='movie-item-wrapper'>
             <img className='movie-img' src={props.movie.image} />
-            <div className='bottom-wrapper'>
+            <div className='bottom-wrapper' style={{fontSize: props.fontSize}}>
                 <div className='details'>
                     <div>{`Title:${props.movie.title}`}</div>
                     <div>{`Year:${props.movie.year}`}</div>
