@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useState, useEffect, createContext } from "react";
 import { Movie, PrivateMovie } from "../types/types";
 
@@ -9,6 +10,10 @@ export const MovieProvider = (props: any) => {
     const localData = localStorage.getItem("top250MoviesCollection");
     return localData ? JSON.parse(localData) : []
   })
+  // const [top250Movies, setTop250Movies] = useState<Movie[] | null>(() => {
+  //   const localData = localStorage.getItem("top250MoviesCollection");
+  //   return localData ? JSON.parse(localData) : []
+  // })
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>(() => {
     const localData = localStorage.getItem("mostPopularMoviesCollection");
     return localData ? JSON.parse(localData) : []
@@ -27,25 +32,19 @@ export const MovieProvider = (props: any) => {
 
 
   const get250TopMovies = async () => {
-    if (top250Movies === [] || top250Movies === undefined) {
+    if(top250Movies?.length === 0) {
       const res = await fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY}`);
       const data = await res.json();
       const newData = data.items.map((movie: Movie) => ({ ...movie, isAddedToFavorite: false }));
       setTop250Movies(newData)
-
-    }else return
-    
-    
+    }
   }
 
   const getMostPopularMovies = async () => {
-    if(mostPopularMovies === [] || mostPopularMovies === undefined) {
       const res = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`)
       const data = await res.json();
       const newData = data.items.map((movie:Movie) => ({...movie, isAddedToFavorite: false}));
       setMostPopularMovies(newData);
-      console.log("first fetch of popular movies")
-    }else return
   }
 
   const getTrailer = async (id: string) => {
@@ -65,7 +64,7 @@ export const MovieProvider = (props: any) => {
     localStorage.setItem("favoritesCollection", JSON.stringify(favoriteMovies))
     localStorage.setItem("top250MoviesCollection", JSON.stringify(top250Movies))
     localStorage.setItem("mostPopularMoviesCollection", JSON.stringify(mostPopularMovies))
-  }, [ favoriteMovies, top250Movies, mostPopularMovies])
+  }, [favoriteMovies, top250Movies, mostPopularMovies])
 
   useEffect(() => {
     localStorage.setItem("privateCollection", JSON.stringify(privateMovies))
