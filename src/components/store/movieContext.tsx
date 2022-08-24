@@ -27,7 +27,7 @@ export const MovieProvider = (props: any) => {
 
 
   const get250TopMovies = async () => {
-    if (top250Movies === []) {
+    if (top250Movies === [] || top250Movies === undefined) {
       const res = await fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY}`);
       const data = await res.json();
       const newData = data.items.map((movie: Movie) => ({ ...movie, isAddedToFavorite: false }));
@@ -39,15 +39,13 @@ export const MovieProvider = (props: any) => {
   }
 
   const getMostPopularMovies = async () => {
-    if(mostPopularMovies === []) {
+    if(mostPopularMovies === [] || mostPopularMovies === undefined) {
       const res = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`)
       const data = await res.json();
       const newData = data.items.map((movie:Movie) => ({...movie, isAddedToFavorite: false}));
       setMostPopularMovies(newData);
       console.log("first fetch of popular movies")
-    }else {
-      console.log('full popular movies')
-    }
+    }else return
   }
 
   const getTrailer = async (id: string) => {
