@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeView />} />
             <Route path="/favorites" element={<Favorites />} />
-            {/* <Route path="/mostPopular" element={<MostPopularMovies />} /> */}
+            <Route path="/mostPopular" element={<MostPopularMovies />} />
             <Route path="/privateWatchingList" element={<PrivateWatchingList />} />
           </Routes>
         </BrowserRouter>
