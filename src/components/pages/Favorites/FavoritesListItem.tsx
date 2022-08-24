@@ -8,7 +8,7 @@ interface FavoritesListItemProps {
 }
 
 const FavoritesListItem = (props: FavoritesListItemProps) => {
-    const { setFavoriteMovies, setTop250Movies, getAllTrailers, backgroundOpacity } = useContext(MovieContext)
+    const { setFavoriteMovies, setTop250Movies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const deleteMovieFromFavoritesHandler = (id: string) => {
         setFavoriteMovies((prev: Movie[]) => prev.filter((movie: Movie) => movie.id !== id))
         setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: false } : { ...movie }))
@@ -28,7 +28,7 @@ const FavoritesListItem = (props: FavoritesListItemProps) => {
             </div>
             <div className='homeview-btn-wrapper'>
                 <button className='btn-delete' onClick={() => deleteMovieFromFavoritesHandler(props.movie.id)}>Delete</button>
-                <button className='btn-trailer' onClick={() => getAllTrailers(props.movie.id)}>Trailer</button>
+                <button className='btn-trailer' onClick={() => getTrailer(props.movie.id)}>Trailer</button>
             </div>
         </li>
     )

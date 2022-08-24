@@ -8,10 +8,6 @@ import MostPopularMovies from './components/pages/MostPopularMovies/MostPopularM
 import PrivateWatchingList from './components/pages/privateWatchingList/PrivateWatchingList';
 
 function App() {
-  let a: any = [];
- const c = typeof(42.1)
-  console.log(a);
-  console.log(c)
 
   return (
     <div className="app">

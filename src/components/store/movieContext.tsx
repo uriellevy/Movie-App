@@ -5,42 +5,59 @@ import { Movie, PrivateMovie } from "../types/types";
 export const MovieContext = createContext<any>(null);
 
 export const MovieProvider = (props: any) => {
-  const [top250Movies, setTop250Movies] = useState<Movie[] | null>([])
+  const [top250Movies, setTop250Movies] = useState<Movie[] | null>(() => {
+    const localData = localStorage.getItem("top250MoviesCollection");
+    return localData ? JSON.parse(localData) : []
+  })
+  const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>(() => {
+    const localData = localStorage.getItem("mostPopularMoviesCollection");
+    return localData ? JSON.parse(localData) : []
+  })
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[] | null>(() => {
     const localData = localStorage.getItem("favoritesCollection");
     return localData ? JSON.parse(localData) : []
   })
-  const [searchByName, setSearchByName] = useState<string | undefined>('')
-  const [mostPopularMovies, setMostPopularMovies] = useState<Movie[] | null>([])
   const [privateMovies, setPrivateMovies] = useState<PrivateMovie[]>(() => {
     const localData = localStorage.getItem("privateCollection");
     return localData ? JSON.parse(localData) : [];
   });
+  const [searchByName, setSearchByName] = useState<string | undefined>('')
   const [backgroundOpacity, setBackgroundOpacity] = useState<number>(10);
   const API_KEY = "k_y5o4o48d"
 
 
   const get250TopMovies = async () => {
-    const res = await fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY}`);
-    const data = await res.json();
-    const newData = data.items.map((movie: Movie) => ({ ...movie, isAddedToFavorite: false }));
-    setTop250Movies(newData)
-  };
+    if (top250Movies === []) {
+      const res = await fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY}`);
+      const data = await res.json();
+      const newData = data.items.map((movie: Movie) => ({ ...movie, isAddedToFavorite: false }));
+      setTop250Movies(newData)
 
-  const getMostPopularMovies = async () => {
-    const res = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`)
-    const data = await res.json();
-    const newData = data.items.map((movie:Movie) => ({...movie, isAddedToFavorite: false}));
-    setMostPopularMovies(newData);
+    }else return
+    
+    
   }
 
-  const getAllTrailers = async (id: string) => {
+  const getMostPopularMovies = async () => {
+    if(mostPopularMovies === []) {
+      const res = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`)
+      const data = await res.json();
+      const newData = data.items.map((movie:Movie) => ({...movie, isAddedToFavorite: false}));
+      setMostPopularMovies(newData);
+      console.log("first fetch of popular movies")
+    }else {
+      console.log('full popular movies')
+    }
+  }
+
+  const getTrailer = async (id: string) => {
     const res = await fetch(`https://imdb-api.com/en/API/Trailer/k_y5o4o48d/${id}`)
     const data = await res.json();
     const url = data.link
     window.open(url);
   }
 
+  
   useEffect(() => {
     get250TopMovies()
     getMostPopularMovies()
@@ -48,14 +65,14 @@ export const MovieProvider = (props: any) => {
   
   useEffect(() => {
     localStorage.setItem("favoritesCollection", JSON.stringify(favoriteMovies))
-  }, [favoriteMovies])
+    localStorage.setItem("top250MoviesCollection", JSON.stringify(top250Movies))
+    localStorage.setItem("mostPopularMoviesCollection", JSON.stringify(mostPopularMovies))
+  }, [ favoriteMovies, top250Movies, mostPopularMovies])
 
   useEffect(() => {
     localStorage.setItem("privateCollection", JSON.stringify(privateMovies))
   }, [privateMovies])
 
-
-  
   const searchByNameChangeHandler = (input: string) => {
     setSearchByName(input)
   }
@@ -82,7 +99,7 @@ export const MovieProvider = (props: any) => {
     setFavoriteMovies,
     mostPopularMovies,
     setMostPopularMovies,
-    getAllTrailers,
+    getTrailer,
     privateMovies,
     setPrivateMovies,
     capitilizeMovieName,
