@@ -19,6 +19,7 @@ const HomeMovieItem = (props: HomeViewListItemProps) => {
             setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: true } : { ...movie }))
         }
     }
+    
 
     return (
         <li className='movie-item-wrapper' style={{opacity: backgroundOpacity * 0.1}}>
