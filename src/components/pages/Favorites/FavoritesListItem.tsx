@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
+import RatingDisplay from '../../utils/ratingDisplay'
 
 interface FavoritesListItemProps {
     movie: Movie
@@ -21,7 +22,7 @@ const FavoritesListItem = (props: FavoritesListItemProps) => {
                 <div className='details'>
                     <div>{`Title:${props.movie.title}`}</div>
                     <div>{`Year:${props.movie.year}`}</div>
-                    <div>{`IMDB Rating:${props.movie.imDbRating}`}</div>
+                    <RatingDisplay rating={props.movie.imDbRating}/>
                     <div>{`Rank:${props.movie.rank}`}</div>
                     <div>{`Crew:${crew}`}</div>
                 </div>

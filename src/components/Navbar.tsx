@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.scss"
 import { MdLocalMovies } from "react-icons/md"
 
@@ -12,30 +12,31 @@ const Nav = () => {
       </div>
 
       <ul className="nav-list">
-        <Link
+        <NavLink
           to="/"
-          className="nav-link"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           Home
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/favorites"
-          className="nav-link"
+          // className="nav-link"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           Favorites
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/mostPopular"
-          className="nav-link"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           Most Popular
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/privateWatchingList"
-          className="nav-link"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           Private
-        </Link>
+        </NavLink>
       </ul>
     </nav>
   )

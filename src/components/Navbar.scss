@@ -20,22 +20,24 @@
     }
   
     .nav-list {
-      .nav-link {
+      .inactive, .active {
         text-decoration: none;
-        color: rgb(22, 39, 69);
+        font-weight: 600;
         transition: all 0.3s ease;
-  
+        
         &:first-child,
         &:nth-child(2),
         &:nth-child(3) {
           margin-right: 20px;
         }
-  
-        &:hover {
-          color: rgba(255, 255, 255, 0.753);
-          transform: scale(1.2);
-        }
       }
+      .inactive {
+        color: #000;
+      }
+      .active {
+        color: rgba(255, 255, 255, 0.753);
+      }
+      
     }
   }
 

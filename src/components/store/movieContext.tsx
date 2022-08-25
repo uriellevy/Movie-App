@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React, { useState, useEffect, createContext } from "react";
 import { Movie, PrivateMovie } from "../types/types";
 
@@ -84,7 +83,6 @@ export const MovieProvider = (props: any) => {
     setBackgroundOpacity((prev) => prev = value)
   }
   
-
 
 
   const value = {
