@@ -1,5 +1,5 @@
 import React from 'react'
-import "./RatingDisplay.scss"
+import "./ratingDisplay.scss"
 
 
 interface ratingDisplayProps {
