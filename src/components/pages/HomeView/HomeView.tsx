@@ -6,7 +6,6 @@ import { MovieContext } from '../../store/movieContext';
 import "./HomeView.scss";
 import { Movie } from '../../types/types';
 import SearchBar from '../../utils/SearchBar';
-import SliderInput from '../../utils/SliderInput';
 
 
 const HomeView = () => {
@@ -17,7 +16,6 @@ const HomeView = () => {
     <div className="homeview-container">
       <SearchBar />
       <h1>Top 250 movies</h1>
-      <SliderInput/>
       <ul className='movie-list-wrapper'>
         {top250Movies.length !== 0 ?
           top250Movies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (

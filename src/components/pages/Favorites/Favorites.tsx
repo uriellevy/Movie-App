@@ -13,7 +13,6 @@ const Favorites = () => {
         <>
             <div className="homeview-container">
                 <SearchBar />
-                <SliderInput />
                 <ul className='movie-list-wrapper'>
                     {favoriteMovies.length !== 0 ?
                         favoriteMovies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (

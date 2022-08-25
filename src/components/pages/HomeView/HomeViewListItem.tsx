@@ -1,8 +1,9 @@
 import React, { useContext} from 'react'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
-import "./HomeViewListItem.scss"
 import RatingDisplay from '../../utils/ratingDisplay'
+import "./HomeViewListItem.scss"
+
 
 
 interface HomeViewListItemProps {

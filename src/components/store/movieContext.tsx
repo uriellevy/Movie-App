@@ -22,7 +22,10 @@ export const MovieProvider = (props: any) => {
     return localData ? JSON.parse(localData) : [];
   });
   const [searchByName, setSearchByName] = useState<string | undefined>('')
-  const [backgroundOpacity, setBackgroundOpacity] = useState<number>(10);
+  const [backgroundOpacity, setBackgroundOpacity] = useState<number>(() => {
+    const localData = localStorage.getItem("cardBackgroundOpacity");
+    return localData ? JSON.parse(localData) : 10;
+  });
   const API_KEY = "k_y5o4o48d"
 
 
@@ -68,7 +71,8 @@ export const MovieProvider = (props: any) => {
 
   useEffect(() => {
     localStorage.setItem("privateCollection", JSON.stringify(privateMovies))
-  }, [privateMovies])
+    localStorage.setItem("cardBackgroundOpacity", JSON.stringify(backgroundOpacity))
+  }, [privateMovies, backgroundOpacity])
 
   const searchByNameChangeHandler = (input: string) => {
     setSearchByName(input)

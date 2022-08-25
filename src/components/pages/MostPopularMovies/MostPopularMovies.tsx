@@ -14,7 +14,6 @@ const MostPopularMovies = () => {
         <div className="homeview-container">
             <SearchBar/>
             <h1>Most Popular Movies</h1>
-            <SliderInput/>
                 <ul className='movie-list-wrapper'>
                     {mostPopularMovies.length !== 0 ?
                         mostPopularMovies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
