@@ -4,7 +4,6 @@ import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import MostPopularListItem from './MostPopularListItem'
 import SearchBar from '../../utils/SearchBar'
-import SliderInput from '../../utils/SliderInput'
 
 
 const MostPopularMovies = () => {

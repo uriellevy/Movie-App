@@ -12,7 +12,6 @@ const SettingsWindow = () => {
     const openSettingsHandler = (event:any) => {
         setIsSettingsWindowOpen((PrevState) => !PrevState)
         event.stopPropagation();
-
     }
     const activeStyle = isSettingsWindowOpen ? "active" : "";
     const clickOutsideHandler = () => {

@@ -8,7 +8,7 @@
 }
 
 html {
-  background: url('./img//background.png') fixed ;
+  background: url("./img/background-white.jpg") fixed;
   color: #000;
 }
 
@@ -25,6 +25,5 @@ html {
 @media (prefers-color-scheme: dark) {
   html {
     background: url('./img//dark-background.jpg') fixed ;
-
   }
 }

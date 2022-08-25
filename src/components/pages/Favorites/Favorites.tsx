@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { MovieContext } from '../../store/movieContext';
 import { Movie } from '../../types/types';
 import SearchBar from '../../utils/SearchBar';
-import SliderInput from '../../utils/SliderInput';
 import FavoritesListItem from './FavoritesListItem';
 
 
