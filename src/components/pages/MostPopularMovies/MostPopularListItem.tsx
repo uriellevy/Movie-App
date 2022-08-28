@@ -2,15 +2,17 @@ import React, { useContext } from 'react'
 import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import RatingDisplay from '../../utils/ratingDisplay'
+import {texts} from '../../../consts';
 
 interface MostPopularListItemProps {
     movie: Movie
-    key: string | undefined
 }
 
-const MostPopularListItem = (props: MostPopularListItemProps) => {
-    const crew = props.movie.crew?.replace('(dir.)', '')
+const MostPopularListItem = ({movie}: MostPopularListItemProps) => {
+    const {TRAILER_TEXT, ADD_TEXT}= texts;
+    const {image, title, year, imDbRating, rank, crew, id, isAddedToFavorite} = movie;
     const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies, getTrailer, backgroundOpacity } = useContext(MovieContext)
+    const crewTitle = crew?.replace('(dir.)', '')
 
     const addMovieToFavoritesHandler = (id: string) => {
         const chosenMovieToFavorites = mostPopularMovies.find((movie: Movie) => movie.id === id);
@@ -19,21 +21,22 @@ const MostPopularListItem = (props: MostPopularListItemProps) => {
             setMostPopularMovies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: true } : { ...movie }))
         }
     }
+
     return (
         <li className='movie-item-wrapper' style={{opacity: backgroundOpacity * 0.1}}>
-            <img className='movie-img' src={props.movie.image} />
+            <img className='movie-img' src={image} />
             <div className='bottom-wrapper'>
                 <div className='details'>
-                    <div>{`Title:${props.movie.title}`}</div>
-                    <div>{`Year:${props.movie.year}`}</div>
-                    <RatingDisplay rating={props.movie.imDbRating}/>
-                    <div>{`Rank:${props.movie.rank}`}</div>
-                    <div>{`Crew:${crew}`}</div>
+                    <div>{`Title:${title}`}</div>
+                    <div>{`Year:${year}`}</div>
+                    <RatingDisplay rating={imDbRating}/>
+                    <div>{`Rank:${rank}`}</div>
+                    <div>{`Crew:${crewTitle}`}</div>
                 </div>
             </div>
             <div className='homeview-btn-wrapper'>
-                <button className={props.movie.isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(props.movie.id)}>Add</button>
-                <button className='btn-trailer' onClick={() => getTrailer(props.movie.id)}>Trailer</button>
+                <button className={isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(id)}>{ADD_TEXT}</button>
+                <button className='btn-trailer' onClick={() => getTrailer(id)}>{TRAILER_TEXT}</button>
             </div>
         </li>
     )

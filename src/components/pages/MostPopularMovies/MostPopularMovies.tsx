@@ -4,15 +4,16 @@ import { MovieContext } from '../../store/movieContext'
 import { Movie } from '../../types/types'
 import MostPopularListItem from './MostPopularListItem'
 import SearchBar from '../../utils/SearchBar'
+import {texts} from '../../../consts';
 
 
 const MostPopularMovies = () => {
     const { mostPopularMovies, searchByName} = useContext(MovieContext)
-    
+    const {MOST_POPULAR_MOVIES_TITLE} = texts;
     return (
         <div className="homeview-container">
             <SearchBar/>
-            <h1>Most Popular Movies</h1>
+            <h1>{MOST_POPULAR_MOVIES_TITLE}</h1>
                 <ul className='movie-list-wrapper'>
                     {mostPopularMovies.length !== 0 ?
                         mostPopularMovies.filter((movie: Movie) => movie.title.toLowerCase().includes(searchByName)).map((movie: Movie) => (

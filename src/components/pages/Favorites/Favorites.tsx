@@ -3,11 +3,12 @@ import { MovieContext } from '../../store/movieContext';
 import { Movie } from '../../types/types';
 import SearchBar from '../../utils/SearchBar';
 import FavoritesListItem from './FavoritesListItem';
+import {texts} from '../../../consts';
 
 
 const Favorites = () => {
     const { favoriteMovies, searchByName } = useContext(MovieContext)
-
+    const {FAVORITES_EMPTY} = texts;
     return (
         <>
             <div className="homeview-container">
@@ -17,7 +18,7 @@ const Favorites = () => {
                         favoriteMovies.filter((movie: Movie) => movie.title.toLowerCase().includes(searchByName)).map((movie: Movie) => (
                             <FavoritesListItem key={movie.id} movie={movie} />
                         )) :
-                        <h1>No favorites selected</h1>
+                        <h1>{FAVORITES_EMPTY}</h1>
                     }
                 </ul>
 

@@ -4,10 +4,12 @@ import { FcSettings } from "react-icons/fc"
 import { IoColorFilterOutline } from "react-icons/io5"
 import SliderInput from './utils/SliderInput'
 import UseOutsideClick from './customHooks/UseOutsideClick'
+import {texts} from '../consts';
 
 
 
 const SettingsWindow = () => {
+    const {SETTIGS_WINDOW_OPACITY} = texts;
     const [isSettingsWindowOpen, setIsSettingsWindowOpen] = useState<boolean>(false);
     const openSettingsHandler = (event:any) => {
         setIsSettingsWindowOpen((PrevState) => !PrevState)
@@ -27,7 +29,7 @@ const SettingsWindow = () => {
                 <div className='setting-option'>
                     <div className='option-title-wrapper'>
                         <IoColorFilterOutline className='option-icon' />
-                        <h3 className='option-title'>opacity</h3>
+                        <h3 className='option-title'>{SETTIGS_WINDOW_OPACITY}</h3>
                     </div>
                     <SliderInput />
                 </div>

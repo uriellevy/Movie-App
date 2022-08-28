@@ -1,0 +1,15 @@
+export const texts =  {
+    NAVBAR_IMDB: "Imdb",
+    NAVBAR_HOME: "Home",
+    NAVBAR_FAVORITES: "Favorites",
+    NAVBAR_MOST_POPULAR: "Most Popular",
+    NAVBAR_PRIVATE: "Private",
+    SETTIGS_WINDOW_OPACITY: "opacity",
+    HOME_VIEW_TITLE: "Top 250 movies",
+    TRAILER_TEXT: "Trailer",
+    DELETE_TEXT: "Delete",
+    ADD_TEXT: "Add",
+    FAVORITES_EMPTY: "No favorites selected",
+    MOST_POPULAR_MOVIES_TITLE: "Most Popular Movies",
+    PRIVATE_WATCHING_TITLE: "Add Aditional Movies You Would Like To Watch",
+}

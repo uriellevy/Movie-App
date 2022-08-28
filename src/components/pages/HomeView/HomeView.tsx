@@ -6,16 +6,17 @@ import { MovieContext } from '../../store/movieContext';
 import "./HomeView.scss";
 import { Movie } from '../../types/types';
 import SearchBar from '../../utils/SearchBar';
+import {texts} from '../../../consts';
 
 
 const HomeView = () => {
   const { top250Movies, searchByName } = useContext(MovieContext)
-  
+  const {HOME_VIEW_TITLE} = texts;
  
   return (
     <div className="homeview-container">
       <SearchBar />
-      <h1>Top 250 movies</h1>
+      <h1>{HOME_VIEW_TITLE}</h1>
       <ul className='movie-list-wrapper'>
         {top250Movies.length !== 0 ?
           top250Movies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
