@@ -1,38 +1,35 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import { MovieContext } from '../../store/movieContext'
 import { PrivateMovie } from '../../types/types';
 import "./PrivateWatchingList.scss"
-import {texts} from '../../../consts';
+import { texts } from '../../../consts';
 
 
 
 
 const PrivateWatchingList = () => {
-    const {PRIVATE_WATCHING_TITLE, DELETE_TEXT} = texts;
+    const { PRIVATE_WATCHING_TITLE, DELETE_TEXT } = texts;
     const { privateMovies, setPrivateMovies, capitilizeMovieName } = useContext(MovieContext)
-    const [title, setTitle] = useState<string>('')
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value)
-    }
+    const titleInputRef = useRef<HTMLInputElement | null>(null);
+
     const addMovieToPrivateList = () => {
-        if (title !== "") {
-            setPrivateMovies((prev: PrivateMovie[]) => [...prev, { title: capitilizeMovieName(title), id: Math.round(Math.random() * 1000) }]);
-            setTitle("")
+        const enteredTitle = titleInputRef.current?.value;
+        if (enteredTitle !== '') {
+            setPrivateMovies((prev: PrivateMovie[]) => [...prev, { title: capitilizeMovieName(enteredTitle), id: Math.round(Math.random() * 1000) }]);
         }
+        titleInputRef.current!.value = '';
+
     }
 
     const deleteMovieFromPrivateList = (id: number) => {
         setPrivateMovies((prev: PrivateMovie[]) => prev.filter((movie: PrivateMovie) => movie.id !== id))
     }
 
-
-
-
     return (
         <div className='private-wrapper'>
             <h1 className='private-wrapper-title'>{PRIVATE_WATCHING_TITLE}</h1>
             <div className='private-add-input'>
-                <input className='private-add-text' type="text" onChange={handleInputChange} value={title} placeholder="type movie..." />
+                <input className='private-add-text' type="text" ref={titleInputRef} placeholder="type movie..." />
                 <input className='private-add-btn' type="submit" onClick={addMovieToPrivateList} value="Add" />
             </div>
             <ul className='private-list'>

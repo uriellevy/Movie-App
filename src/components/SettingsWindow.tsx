@@ -11,15 +11,18 @@ import {texts} from '../consts';
 const SettingsWindow = () => {
     const {SETTIGS_WINDOW_OPACITY} = texts;
     const [isSettingsWindowOpen, setIsSettingsWindowOpen] = useState<boolean>(false);
+    const activeStyle = isSettingsWindowOpen ? "active" : "";
+
     const openSettingsHandler = (event:any) => {
         setIsSettingsWindowOpen((PrevState) => !PrevState)
         event.stopPropagation();
-    }
-    const activeStyle = isSettingsWindowOpen ? "active" : "";
+    };
+
     const clickOutsideHandler = () => {
         setIsSettingsWindowOpen((prevState) => prevState = false)
-    }
-    const ref = UseOutsideClick(clickOutsideHandler)
+    };
+
+    const ref = UseOutsideClick(clickOutsideHandler);
    
     return (
         <div className='settings-wrapper' >
