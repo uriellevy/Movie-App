@@ -1,12 +1,12 @@
 import React from 'react'
 import "./ratingDisplay.scss"
 
-
 interface ratingDisplayProps {
     rating: string
 }
-const ratingDisplay = (props: ratingDisplayProps) => {
-    const ratingInt: number = parseFloat(props.rating);
+
+const ratingDisplay = ({rating}: ratingDisplayProps) => {
+    const ratingInt: number = parseFloat(rating);
     const ratingTitle = `Rating:${ratingInt}`
 
     const getStarFullHalfOrEmpty = (star: number): string => {

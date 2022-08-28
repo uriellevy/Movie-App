@@ -30,39 +30,38 @@ export const MovieProvider = (props: any) => {
 
 
   const get250TopMovies = async () => {
-    if(top250Movies?.length === 0) {
+    if (top250Movies?.length === 0) {
       const res = await fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY}`);
       const data = await res.json();
       const newData = data.items.map((movie: Movie) => ({ ...movie, isAddedToFavorite: false }));
       setTop250Movies(newData)
-    }else return
+    } else return
   }
 
   const getMostPopularMovies = async () => {
     if (mostPopularMovies?.length === 0) {
       const res = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/${API_KEY}`)
       const data = await res.json();
-      const newData = data.items.map((movie:Movie) => ({...movie, isAddedToFavorite: false}));
+      const newData = data.items.map((movie: Movie) => ({ ...movie, isAddedToFavorite: false }));
       setMostPopularMovies(newData);
-    }else return
+    } else return
   }
 
   const getTrailer = async (id: string) => {
     const res = await fetch(`https://imdb-api.com/en/API/Trailer/k_y5o4o48d/${id}`)
     const data = await res.json();
     const url = data.link
-    // window.open(url);
     setTimeout(() => {
       window.open(url, '_blank');
-  })
+    })
   }
 
-  
+
   useEffect(() => {
     get250TopMovies()
     getMostPopularMovies()
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem("favoritesCollection", JSON.stringify(favoriteMovies))
     localStorage.setItem("top250MoviesCollection", JSON.stringify(top250Movies))
@@ -79,14 +78,15 @@ export const MovieProvider = (props: any) => {
   }
 
   const capitilizeMovieName = (movieTitle: string) => {
-    return movieTitle.split(" ").map((title) => title.charAt(0).toLocaleUpperCase() + title.slice(1)).join(" ");
+    return movieTitle.split(" ").map((title) => title.charAt(0).toUpperCase() + title.slice(1)).join(" ");
   }
 
   const backgroundOpacityChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
     setBackgroundOpacity((prev) => prev = value)
   }
-  
+
+
 
 
   const value = {

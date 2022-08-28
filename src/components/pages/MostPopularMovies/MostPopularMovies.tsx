@@ -15,7 +15,7 @@ const MostPopularMovies = () => {
             <h1>Most Popular Movies</h1>
                 <ul className='movie-list-wrapper'>
                     {mostPopularMovies.length !== 0 ?
-                        mostPopularMovies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
+                        mostPopularMovies.filter((movie: Movie) => movie.title.toLowerCase().includes(searchByName)).map((movie: Movie) => (
                             <MostPopularListItem key={movie.id} movie={movie} />
                         )) :
                         <Rings color="#00BFFF" height={80} width={80} />

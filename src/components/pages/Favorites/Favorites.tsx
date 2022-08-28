@@ -14,7 +14,7 @@ const Favorites = () => {
                 <SearchBar />
                 <ul className='movie-list-wrapper'>
                     {favoriteMovies.length !== 0 ?
-                        favoriteMovies.filter((movie: Movie) => movie.title.toLocaleLowerCase().includes(searchByName)).map((movie: Movie) => (
+                        favoriteMovies.filter((movie: Movie) => movie.title.toLowerCase().includes(searchByName)).map((movie: Movie) => (
                             <FavoritesListItem key={movie.id} movie={movie} />
                         )) :
                         <h1>No favorites selected</h1>

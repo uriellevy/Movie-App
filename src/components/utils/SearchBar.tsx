@@ -4,7 +4,7 @@ import { MovieContext } from '../store/movieContext'
 
 
 const SearchBar = () => {
-  const { searchByNameChangeHandler } = useContext(MovieContext)
+  const { searchByNameChangeHandler, searchByName } = useContext(MovieContext)
 
   return (
     <div className="homeview-search">
@@ -12,7 +12,8 @@ const SearchBar = () => {
     <input
       type="text"
       placeholder="search by movie name..."
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchByNameChangeHandler(e.target.value)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchByNameChangeHandler(e.target.value.toLowerCase())}
+      value={searchByName}
     />
   </div>
   )
