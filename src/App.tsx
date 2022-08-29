@@ -9,7 +9,6 @@ import PrivateWatchingList from './components/pages/privateWatchingList/PrivateW
 import SettingsWindow from './components/SettingsWindow';
 
 function App() {
-
   return (
     <div className="app">
       <MovieProvider >

@@ -7,8 +7,8 @@ import {HiMenuAlt3} from 'react-icons/hi';
 
 const Nav = () => {
   const {NAVBAR_HOME, NAVBAR_IMDB, NAVBAR_FAVORITES, NAVBAR_MOST_POPULAR, NAVBAR_PRIVATE} = texts;
-  const [isSideNavigationOpen, setIsSideNavigationOpen] = useState<boolean>(false);
-  
+  const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
+
   return (
     <nav className="nav-container">
       <div className="nav-logo">
@@ -19,7 +19,7 @@ const Nav = () => {
       <ul className="nav-list">
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          className={({ isActive }) => (isActive ? `active` : 'inactive')}
         >
           {NAVBAR_HOME}
         </NavLink>

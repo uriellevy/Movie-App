@@ -7,7 +7,7 @@ import UseOutsideClick from './customHooks/UseOutsideClick';
 import {texts} from '../consts';
 import useBoolean from './customHooks/UseBoolean';
 
-
+// const [FLAG, {setFalse, setToggle}] = useBoolean(false);
 
 const SettingsWindow = () => {
     const {SETTIGS_WINDOW_OPACITY} = texts;
@@ -33,7 +33,6 @@ const SettingsWindow = () => {
                     <SliderInput />
                 </div>
             </div>
-
         </div>
     )
 }
