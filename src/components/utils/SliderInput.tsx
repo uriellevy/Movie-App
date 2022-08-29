@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import { MovieContext } from '../store/movieContext'
-import "./SliderInput.scss"
+import React, { useContext } from 'react';
+import { MovieContext } from '../store/movieContext';
+import "./SliderInput.scss";
 
 
 const SliderInput = () => {

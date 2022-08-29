@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import "./HomeView.scss";
 import { Rings } from "react-loader-spinner";
 import HomeViewListItem from './HomeViewListItem';
@@ -10,8 +10,8 @@ import {texts} from '../../../consts';
 
 
 const HomeView = () => {
-  const { top250Movies, searchByName } = useContext(MovieContext)
   const {HOME_VIEW_TITLE} = texts;
+  const { top250Movies, searchByName } = useContext(MovieContext)
  
   return (
     <div className="homeview-container">

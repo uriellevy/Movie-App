@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import { MovieContext } from '../../store/movieContext'
-import { Movie } from '../../types/types'
-import RatingDisplay from '../../utils/ratingDisplay'
+import React, { useContext } from 'react';
+import { MovieContext } from '../../store/movieContext';
+import { Movie } from '../../types/types';
+import RatingDisplay from '../../utils/ratingDisplay';
 import {texts} from '../../../consts';
 
 interface FavoritesListItemProps {
@@ -9,9 +9,9 @@ interface FavoritesListItemProps {
 }
 
 const FavoritesListItem = ({movie}: FavoritesListItemProps) => {
-    const { setFavoriteMovies, setTop250Movies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const {TRAILER_TEXT, DELETE_TEXT} = texts;
     const {title, year, imDbRating, rank, crew, id, image} = movie;
+    const { setFavoriteMovies, setTop250Movies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const crewTitle = crew.replace("(dir.)", "");
     const deleteMovieFromFavoritesHandler = (id: string) => {
         setFavoriteMovies((prev: Movie[]) => prev.filter((movie: Movie) => movie.id !== id))

@@ -1,10 +1,8 @@
-import React, { useContext, useState, useRef } from 'react'
-import { MovieContext } from '../../store/movieContext'
+import React, { useContext, useRef } from 'react';
+import { MovieContext } from '../../store/movieContext';
 import { PrivateMovie } from '../../types/types';
-import "./PrivateWatchingList.scss"
+import "./PrivateWatchingList.scss";
 import { texts } from '../../../consts';
-
-
 
 
 const PrivateWatchingList = () => {
@@ -18,7 +16,6 @@ const PrivateWatchingList = () => {
             setPrivateMovies((prev: PrivateMovie[]) => [...prev, { title: capitilizeMovieName(enteredTitle), id: Math.round(Math.random() * 1000) }]);
         }
         titleInputRef.current!.value = '';
-
     }
 
     const deleteMovieFromPrivateList = (id: number) => {

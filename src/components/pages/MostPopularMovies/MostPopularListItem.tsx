@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import { MovieContext } from '../../store/movieContext'
-import { Movie } from '../../types/types'
-import RatingDisplay from '../../utils/ratingDisplay'
+import React, { useContext } from 'react';
+import { MovieContext } from '../../store/movieContext';
+import { Movie } from '../../types/types';
+import RatingDisplay from '../../utils/ratingDisplay';
 import {texts} from '../../../consts';
 
 interface MostPopularListItemProps {
@@ -11,8 +11,8 @@ interface MostPopularListItemProps {
 const MostPopularListItem = ({movie}: MostPopularListItemProps) => {
     const {TRAILER_TEXT, ADD_TEXT}= texts;
     const {image, title, year, imDbRating, rank, crew, id, isAddedToFavorite} = movie;
-    const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies, getTrailer, backgroundOpacity } = useContext(MovieContext)
-    const crewTitle = crew?.replace('(dir.)', '')
+    const { mostPopularMovies, setMostPopularMovies, setFavoriteMovies, getTrailer, backgroundOpacity } = useContext(MovieContext);
+    const crewTitle = crew?.replace('(dir.)', '');
 
     const addMovieToFavoritesHandler = (id: string) => {
         const chosenMovieToFavorites = mostPopularMovies.find((movie: Movie) => movie.id === id);

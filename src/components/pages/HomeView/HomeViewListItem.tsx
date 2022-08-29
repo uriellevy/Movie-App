@@ -1,8 +1,8 @@
-import React, { useContext} from 'react'
-import { MovieContext } from '../../store/movieContext'
-import { Movie } from '../../types/types'
-import RatingDisplay from '../../utils/ratingDisplay'
-import "./HomeViewListItem.scss"
+import React, { useContext} from 'react';
+import { MovieContext } from '../../store/movieContext';
+import { Movie } from '../../types/types';
+import RatingDisplay from '../../utils/ratingDisplay';
+import "./HomeViewListItem.scss";
 import {texts} from '../../../consts';
 
 
@@ -12,9 +12,9 @@ interface HomeViewListItemProps {
 }
 
 const HomeMovieItem = ({movie}: HomeViewListItemProps) => {
-    const { top250Movies, setTop250Movies, setFavoriteMovies, favoriteMovies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const {TRAILER_TEXT, DELETE_TEXT} = texts;
     const {image, title, year, imDbRating, rank, crew, isAddedToFavorite, id} = movie;
+    const { top250Movies, setTop250Movies, setFavoriteMovies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const crewTitle = crew?.replace('(dir.)', '');
 
     const addMovieToFavoritesHandler = (id: string) => {

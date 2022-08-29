@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import { FaSearch } from 'react-icons/fa'
-import { MovieContext } from '../store/movieContext'
+import React, { useContext } from 'react';
+import { FaSearch } from 'react-icons/fa';
+import { MovieContext } from '../store/movieContext';
 
 
 const SearchBar = () => {

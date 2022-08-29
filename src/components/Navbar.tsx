@@ -1,10 +1,14 @@
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
-import "./Navbar.scss"
-import { MdLocalMovies } from "react-icons/md"
+import "./Navbar.scss";
+import { MdLocalMovies } from "react-icons/md";
 import {texts} from '../consts';
+import {HiMenuAlt3} from 'react-icons/hi';
 
 const Nav = () => {
   const {NAVBAR_HOME, NAVBAR_IMDB, NAVBAR_FAVORITES, NAVBAR_MOST_POPULAR, NAVBAR_PRIVATE} = texts;
+  const [isSideNavigationOpen, setIsSideNavigationOpen] = useState<boolean>(false);
+  
   return (
     <nav className="nav-container">
       <div className="nav-logo">
@@ -21,7 +25,6 @@ const Nav = () => {
         </NavLink>
         <NavLink
           to="/favorites"
-          // className="nav-link"
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
         >
           {NAVBAR_FAVORITES}

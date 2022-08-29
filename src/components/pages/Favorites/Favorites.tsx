@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { MovieContext } from '../../store/movieContext';
 import { Movie } from '../../types/types';
 import SearchBar from '../../utils/SearchBar';
@@ -7,8 +7,8 @@ import {texts} from '../../../consts';
 
 
 const Favorites = () => {
-    const { favoriteMovies, searchByName } = useContext(MovieContext)
     const {FAVORITES_EMPTY} = texts;
+    const { favoriteMovies, searchByName } = useContext(MovieContext)
     return (
         <>
             <div className="homeview-container">

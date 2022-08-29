@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
-import { Rings } from 'react-loader-spinner'
-import { MovieContext } from '../../store/movieContext'
-import { Movie } from '../../types/types'
-import MostPopularListItem from './MostPopularListItem'
-import SearchBar from '../../utils/SearchBar'
+import React, { useContext } from 'react';
+import { Rings } from 'react-loader-spinner';
+import { MovieContext } from '../../store/movieContext';
+import { Movie } from '../../types/types';
+import MostPopularListItem from './MostPopularListItem';
+import SearchBar from '../../utils/SearchBar';
 import {texts} from '../../../consts';
 
 
 const MostPopularMovies = () => {
-    const { mostPopularMovies, searchByName} = useContext(MovieContext)
     const {MOST_POPULAR_MOVIES_TITLE} = texts;
+    const { mostPopularMovies, searchByName} = useContext(MovieContext)
     return (
         <div className="homeview-container">
             <SearchBar/>
