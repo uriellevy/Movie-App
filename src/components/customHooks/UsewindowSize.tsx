@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-interface Size {
+export interface Size {
     width: number | undefined
     height: number | undefined
 }
 
-const usewindowSize = (): Size => {
+const UsewindowSize = (): Size => {
   const [windowSize, setWindowSize] = useState<Size>({
     width: undefined,
     height: undefined,
@@ -21,10 +21,10 @@ const usewindowSize = (): Size => {
 
     window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize); //return cleanup function is not runnning on first rendering, only on the next render
   },[])
 
   return windowSize;
 }
 
-export default usewindowSize
+export default UsewindowSize

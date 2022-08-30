@@ -3,16 +3,17 @@ import { MovieContext } from '../../store/movieContext';
 import { Movie } from '../../types/types';
 import SearchBar from '../../utils/SearchBar';
 import FavoritesListItem from './FavoritesListItem';
-import {texts} from '../../../consts';
+import { texts } from '../../../consts';
 
 
 const Favorites = () => {
-    const {FAVORITES_EMPTY} = texts;
+    const { FAVORITES_EMPTY, FAVORITES } = texts;
     const { favoriteMovies, searchByName } = useContext(MovieContext)
     return (
         <>
             <div className="homeview-container">
                 <SearchBar />
+                <h1>{FAVORITES}</h1>
                 <ul className='movie-list-wrapper'>
                     {favoriteMovies.length !== 0 ?
                         favoriteMovies.filter((movie: Movie) => movie.title.toLowerCase().includes(searchByName)).map((movie: Movie) => (

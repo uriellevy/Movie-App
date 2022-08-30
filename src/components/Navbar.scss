@@ -1,67 +1,99 @@
 .nav-container {
-    background-image: linear-gradient(120deg, #DBA506, #f0c850 90%);
+  background-image: linear-gradient(120deg, #DBA506, #f0c850 90%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .nav-logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    position: sticky;
+
+    .logo-icon {
+      font-size: 30px;
+      margin-right: 7px;
+    }
+  }
+
+  .nav-list-simple {
+    .inactive,
+    .active {
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:first-child,
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-right: 20px;
+      }
+    }
+
+    .inactive {
+      color: #000;
+    }
+
+    .active {
+      color: rgba(255, 255, 255, 0.753);
+    }
+
+  }
+
+  .nav-modal {
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.253), #000000ee 90%);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
-  
-    .nav-logo {
-      display: flex;
-      align-items: center;
-        
-      .logo-icon {
-        font-size: 30px;
-        margin-right: 7px;
-      }
-    }
-  
-    .nav-list {
-      .inactive, .active {
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        
-        &:first-child,
-        &:nth-child(2),
-        &:nth-child(3) {
-          margin-right: 20px;
-        }
-      }
-      .inactive {
-        color: #000;
-      }
-      .active {
-        color: rgba(255, 255, 255, 0.753);
-      }
-      
-    }
-  }
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+    height: 100vh;
 
-  @media (max-width: 500px) {
-    .nav-container {
-    padding: 15px 10px;
-      .nav-logo {
-        h1 {
-          font-size: 18px;
-        }
-          
-        .logo-icon {
-          font-size: 20px;
-          margin-right: 7px;
-        }
+    .inactive,
+    .active {
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:first-child,
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;
       }
+    }
     
-      .nav-list {
-        display: flex;
-        flex-direction: column;
-        .nav-link {
-          font-size: 12px;
-        }
-      }
+    .inactive {
+      color:#fff ;
+    }
+
+    .active {
+      color:#f0c850;
+    }
+
+    .btn-close {
+      height: 30px;
+      width: 30px;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 30px;
     }
 
   }
+
+  .none {
+    display: none;
+  }
+
+  .menu-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+}

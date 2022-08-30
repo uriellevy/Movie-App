@@ -7,12 +7,14 @@ import { MovieProvider } from "./components/store/movieContext";
 import MostPopularMovies from './components/pages/MostPopularMovies/MostPopularMovies';
 import PrivateWatchingList from './components/pages/privateWatchingList/PrivateWatchingList';
 import SettingsWindow from './components/SettingsWindow';
+import ScrollToTop from './components/utils/ScrollToTop';
 
 function App() {
   return (
     <div className="app">
       <MovieProvider >
         <BrowserRouter>
+        <ScrollToTop>
           <Navbar />
           <SettingsWindow/>
           <Routes>
@@ -21,6 +23,7 @@ function App() {
             <Route path="/mostPopular" element={<MostPopularMovies />} />
             <Route path="/privateWatchingList" element={<PrivateWatchingList />} />
           </Routes>
+        </ScrollToTop>
         </BrowserRouter>
       </MovieProvider>
     </div>

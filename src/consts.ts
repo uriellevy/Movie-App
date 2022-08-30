@@ -9,6 +9,7 @@ export const texts =  {
     TRAILER_TEXT: "Trailer",
     DELETE_TEXT: "Delete",
     ADD_TEXT: "Add",
+    FAVORITES: "Favorites",
     FAVORITES_EMPTY: "No favorites selected",
     MOST_POPULAR_MOVIES_TITLE: "Most Popular Movies",
     PRIVATE_WATCHING_TITLE: "Add Aditional Movies You Would Like To Watch",
