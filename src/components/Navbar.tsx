@@ -9,7 +9,7 @@ import "./Navbar.scss";
 const Nav = () => {
   const { NAVBAR_HOME, NAVBAR_IMDB, NAVBAR_FAVORITES, NAVBAR_MOST_POPULAR, NAVBAR_PRIVATE } = texts;
   const size: Size = UsewindowSize();
-  const [isModalOpen, { setFalse, setTrue }] = useBoolean(true);
+  const [isModalOpen, { setFalse, setTrue }] = useBoolean(false);
   const widthSmallerThan500 = size.width && size.width < 500;
   const ulClassName = !widthSmallerThan500 ? 'nav-list-simple' : (isModalOpen ? 'nav-modal' : 'nav-modal none');
   const showMenuIcon = !isModalOpen && widthSmallerThan500;
