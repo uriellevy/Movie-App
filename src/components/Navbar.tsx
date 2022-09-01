@@ -16,10 +16,10 @@ const Nav = () => {
 
   return (
     <nav className={`nav-container`}>
-      <div className="nav-logo">
+      <NavLink className="nav-logo" to='/'>
         <MdLocalMovies className='logo-icon' />
         <h1 className="logo-title">{NAVBAR_IMDB}</h1>
-      </div>
+      </NavLink>
 
       <ul className={ulClassName}>
         <NavLink

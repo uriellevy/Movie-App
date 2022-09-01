@@ -17,6 +17,7 @@ const PrivateWatchingList = () => {
         }
         titleInputRef.current!.value = '';
     }
+    console.log('private list')
 
     const deleteMovieFromPrivateList = (id: number) => {
         setPrivateMovies((prev: PrivateMovie[]) => prev.filter((movie: PrivateMovie) => movie.id !== id))

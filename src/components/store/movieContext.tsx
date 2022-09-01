@@ -51,7 +51,7 @@ export const MovieProvider = (props: any) => {
     const res = await fetch(`https://imdb-api.com/en/API/Trailer/k_y5o4o48d/${id}`)
     const data = await res.json();
     const url = data.link
-    setTimeout(() => {
+    setTimeout(() => { //set timeout for ios support
       window.open(url, '_blank');
     })
   }

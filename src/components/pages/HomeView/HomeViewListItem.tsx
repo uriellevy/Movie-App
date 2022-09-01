@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { lazy, useContext, useEffect} from 'react';
 import { MovieContext } from '../../store/movieContext';
 import { Movie } from '../../types/types';
 import RatingDisplay from '../../utils/ratingDisplay';
@@ -12,7 +12,7 @@ interface HomeViewListItemProps {
 }
 
 const HomeMovieItem = ({movie}: HomeViewListItemProps) => {
-    const {TRAILER_TEXT, DELETE_TEXT} = texts;
+    const {TRAILER_TEXT, ADD_TEXT} = texts;
     const {image, title, year, imDbRating, rank, crew, isAddedToFavorite, id} = movie;
     const { top250Movies, setTop250Movies, setFavoriteMovies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const crewTitle = crew?.replace('(dir.)', '');
@@ -25,9 +25,13 @@ const HomeMovieItem = ({movie}: HomeViewListItemProps) => {
         }
     }
 
+    useEffect(() => {
+
+    })
+
     return (
         <li className='movie-item-wrapper' style={{opacity: backgroundOpacity * 0.1}}>
-            <img className='movie-img' src={image} />
+            <img className='movie-img' src={`${image}?w=30?h=50`} loading='lazy'/>
             <div className='bottom-wrapper'>
                 <div className='details'>
                     <div>{`Title:${title}`}</div>
@@ -38,7 +42,7 @@ const HomeMovieItem = ({movie}: HomeViewListItemProps) => {
                 </div>
             </div>
             <div className='homeview-btn-wrapper'>
-                <button className={isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(id)}>{DELETE_TEXT}</button>
+                <button className={isAddedToFavorite ? 'btn-disable' : 'btn-add'} onClick={() => addMovieToFavoritesHandler(id)}>{ADD_TEXT}</button>
                 <button className='btn-trailer' onClick={() => getTrailer(id)} >{TRAILER_TEXT}</button>
             </div>
         </li>

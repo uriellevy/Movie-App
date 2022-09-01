@@ -6,7 +6,7 @@ const ScrollToTop = (props: any) => {
 
     useEffect(() => {
         window.scrollTo(0,0);
-        console.log(location)
+        // console.log(location)
     },[location])
 
   return <>{props.children}</>

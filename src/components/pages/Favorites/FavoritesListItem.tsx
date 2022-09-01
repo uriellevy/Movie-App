@@ -11,11 +11,12 @@ interface FavoritesListItemProps {
 const FavoritesListItem = ({movie}: FavoritesListItemProps) => {
     const {TRAILER_TEXT, DELETE_TEXT} = texts;
     const {title, year, imDbRating, rank, crew, id, image} = movie;
-    const { setFavoriteMovies, setTop250Movies, getTrailer, backgroundOpacity } = useContext(MovieContext)
+    const { setFavoriteMovies, setTop250Movies, setMostPopularMovies, getTrailer, backgroundOpacity } = useContext(MovieContext)
     const crewTitle = crew.replace("(dir.)", "");
     const deleteMovieFromFavoritesHandler = (id: string) => {
         setFavoriteMovies((prev: Movie[]) => prev.filter((movie: Movie) => movie.id !== id))
         setTop250Movies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: false } : { ...movie }))
+        setMostPopularMovies((prev: Movie[]) => prev.map((movie: Movie) => movie.id === id ? { ...movie, isAddedToFavorite: false } : { ...movie }))
     }
     return (
         <li className='movie-item-wrapper' key={id} style={{opacity: backgroundOpacity * 0.1}}>
